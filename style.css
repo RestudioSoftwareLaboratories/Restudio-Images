@@ -75,6 +75,7 @@ body.fullscreen-mode .viewer {
     justify-content: center;
     transition: all 0.15s;
     font-size: 18px;
+    font-family: inherit;
 }
 .topbar-btn:hover {
     background: #2a2a2a;
@@ -89,6 +90,9 @@ body.fullscreen-mode .viewer {
     gap: 6px;
     font-size: 13px;
     font-weight: 500;
+}
+.topbar-btn.keepsave-btn i {
+    font-size: 18px;
 }
 .keepsave-badge {
     background: #fff;
@@ -142,12 +146,12 @@ body.fullscreen-mode .viewer {
     background: #333;
     color: #fff;
 }
-.menu-item .ti {
+.menu-item i {
     font-size: 18px;
     color: #aaa;
 }
-.menu-item:hover .ti,
-.menu-item.active .ti {
+.menu-item:hover i,
+.menu-item.active i {
     color: #fff;
 }
 
@@ -184,11 +188,11 @@ body.fullscreen-mode .viewer {
     background: #2a2a2a;
     color: #fff;
 }
-.menu-dropdown-item .ti {
+.menu-dropdown-item i {
     font-size: 20px;
     color: #999;
 }
-.menu-dropdown-item:hover .ti {
+.menu-dropdown-item:hover i {
     color: #fff;
 }
 .menu-dropdown-divider {
@@ -261,11 +265,11 @@ body.fullscreen-mode .viewer {
     color: #fff;
     font-weight: 500;
 }
-.sidebar-section .ti {
+.sidebar-section i {
     font-size: 20px;
     color: #888;
 }
-.sidebar-section.active .ti {
+.sidebar-section.active i {
     color: #1a73e8;
 }
 .sidebar-count {
@@ -349,10 +353,14 @@ body.fullscreen-mode .viewer {
     justify-content: center;
     font-size: 18px;
     transition: all 0.15s;
+    font-family: inherit;
 }
 .bottom-toolbar button:hover {
     background: #3a3a3a;
     color: #fff;
+}
+.bottom-toolbar button i {
+    font-size: 18px;
 }
 .zoom-label {
     padding: 0 8px;
@@ -406,7 +414,7 @@ body.fullscreen-mode .exit-fullscreen-btn {
     align-items: center;
     gap: 4px;
 }
-.statusbar .ti {
+.statusbar i {
     font-size: 14px;
 }
 .exif-badge {
@@ -680,12 +688,24 @@ body.fullscreen-mode .exit-fullscreen-btn {
     pointer-events: all;
 }
 @keyframes toastIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 @keyframes toastOut {
-    from { opacity: 1; transform: translateY(0); }
-    to { opacity: 0; transform: translateY(-10px); }
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
 }
 
 .loading-overlay {
@@ -711,7 +731,9 @@ body.fullscreen-mode .exit-fullscreen-btn {
     animation: spin 0.8s linear infinite;
 }
 @keyframes spin {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .section-actions-bar {
@@ -739,6 +761,7 @@ body.fullscreen-mode .exit-fullscreen-btn {
     align-items: center;
     gap: 6px;
     transition: all 0.2s;
+    font-family: inherit;
 }
 .section-action-btn:hover {
     opacity: 0.9;

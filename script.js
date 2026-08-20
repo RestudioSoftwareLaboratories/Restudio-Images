@@ -1,5 +1,5 @@
 /**
- * Restudio Images - Security Enhanced Version
+ * 
  * 
  * التحسينات الأمنية المطبقة:
  * 1. تطهير المدخلات (Sanitization) - منع هجمات XSS

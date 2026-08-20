@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Restudio Images</title>
 
-    <!-- CSP - Content Security Policy -->
+    <!-- CSP - Content Security Policy (Fixed) -->
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
         script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;
-        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-        font-src 'self' https://fonts.gstatic.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net;
+        style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net;
+        font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net;
         img-src 'self' https://i.postimg.cc data: blob:;
-        connect-src 'self';
+        connect-src 'self' https://cdn.jsdelivr.net;
+        script-src-elem 'self' https://cdn.jsdelivr.net;
     ">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -114,12 +116,12 @@
             <div class="viewer-empty" id="viewerEmpty">
                 <img id="emptyStateImage" src="" alt="" style="display:none;">
                 <p id="emptyStateText">No image loaded</p>
-                <span class="hint">Use File → Open Image or drag & drop</span>
+                <span class="hint">Use File -> Open Image or drag and drop</span>
             </div>
             <canvas id="imageCanvas" style="display:none;"></canvas>
             <div class="bottom-toolbar" id="bottomToolbar" style="display:none;">
                 <button id="btnPrevImage"><i class="ti ti-chevron-left"></i></button>
-                <button id="btnZoomOut">−</button>
+                <button id="btnZoomOut">-</button>
                 <span class="zoom-label" id="zoomLabel">100%</span>
                 <button id="btnZoomIn">+</button>
                 <button id="btnResetZoom"><i class="ti ti-zoom-reset"></i></button>
@@ -133,12 +135,12 @@
     </div>
 
     <div class="statusbar" id="statusbar">
-        <span><i class="ti ti-file"></i> <span id="statName">—</span></span>
-        <span><i class="ti ti-database"></i> <span id="statSize">—</span></span>
-        <span><i class="ti ti-aspect-ratio"></i> <span id="statRes">—</span></span>
-        <span><i class="ti ti-photo"></i> <span id="statFormat">—</span></span>
-        <span><i class="ti ti-calendar"></i> <span id="statDate">—</span></span>
-        <span class="exif-badge" id="exifBadge" title="Click for EXIF data">📸 EXIF</span>
+        <span><i class="ti ti-file"></i> <span id="statName">--</span></span>
+        <span><i class="ti ti-database"></i> <span id="statSize">--</span></span>
+        <span><i class="ti ti-aspect-ratio"></i> <span id="statRes">--</span></span>
+        <span><i class="ti ti-photo"></i> <span id="statFormat">--</span></span>
+        <span><i class="ti ti-calendar"></i> <span id="statDate">--</span></span>
+        <span class="exif-badge" id="exifBadge" title="Click for EXIF data">EXIF</span>
         <span style="margin-right:auto;"></span>
         <span id="statIndex">0 / 0</span>
     </div>
@@ -147,7 +149,7 @@
     <div class="keepsave-drawer" id="keepsaveDrawer">
         <div class="keepsave-header">
             <h2><i class="ti ti-bookmark"></i> KeepSave</h2>
-            <button class="keepsave-close" id="keepsaveClose">✕</button>
+            <button class="keepsave-close" id="keepsaveClose">X</button>
         </div>
         <div class="keepsave-count" id="keepsaveCountLabel">0 saved images</div>
         <div class="keepsave-list" id="keepsaveList"></div>

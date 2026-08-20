@@ -26,7 +26,6 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- ===== TOPBAR ===== -->
     <div class="topbar">
         <img src="https://i.postimg.cc/fRXY4Q9m/swrh-restudio.png" class="topbar-logo" onerror="this.style.display='none'">
         <span class="topbar-brand">Images</span>
@@ -40,12 +39,11 @@
         </div>
     </div>
 
-    <!-- ===== MENUBAR ===== -->
     <div class="menubar" id="menubar">
         <div class="menu-item" data-menu="file"><i class="ti ti-file"></i> File
             <div class="menu-dropdown" id="dropdown-file">
                 <div class="menu-dropdown-item" data-action="open-image"><i class="ti ti-folder-open"></i> Open Image</div>
-                <div class="menu-dropdown-item" data-action="export-remg"><i class="ti ti-download"></i> Export .REMG</div>
+                <div class="menu-dropdown-item" data-action="export-remg"><i class="ti ti-file-export"></i> Export .REMG</div>
                 <div class="menu-dropdown-item" data-action="import-remg"><i class="ti ti-upload"></i> Import .REMG</div>
             </div>
         </div>
@@ -53,11 +51,11 @@
             <div class="menu-dropdown" id="dropdown-view">
                 <div class="menu-dropdown-item" data-action="zoom-in"><i class="ti ti-zoom-in"></i> Zoom In</div>
                 <div class="menu-dropdown-item" data-action="zoom-out"><i class="ti ti-zoom-out"></i> Zoom Out</div>
-                <div class="menu-dropdown-item" data-action="reset-zoom"><i class="ti ti-zoom-out"></i> Reset Zoom</div>
+                <div class="menu-dropdown-item" data-action="reset-zoom"><i class="ti ti-zoom-reset"></i> Reset Zoom</div>
                 <div class="menu-dropdown-divider"></div>
                 <div class="menu-dropdown-item" data-action="fullscreen"><i class="ti ti-arrows-maximize"></i> Fullscreen</div>
-                <div class="menu-dropdown-item" data-action="fit-to-screen"><i class="ti ti-arrows-maximize"></i> Fit To Screen</div>
-                <div class="menu-dropdown-item" data-action="actual-size"><i class="ti ti-arrows-minimize"></i> Actual Size</div>
+                <div class="menu-dropdown-item" data-action="fit-to-screen"><i class="ti ti-arrows-shrink"></i> Fit To Screen</div>
+                <div class="menu-dropdown-item" data-action="actual-size"><i class="ti ti-photo"></i> Actual Size</div>
             </div>
         </div>
         <div class="menu-item" data-menu="navigation"><i class="ti ti-compass"></i> Navigation
@@ -68,13 +66,13 @@
                 <div class="menu-dropdown-item" data-action="slideshow"><i class="ti ti-player-play"></i> Slideshow</div>
             </div>
         </div>
-        <div class="menu-item" data-menu="image-actions"><i class="ti ti-settings"></i> Image Actions
+        <div class="menu-item" data-menu="image-actions"><i class="ti ti-adjustments"></i> Image Actions
             <div class="menu-dropdown" id="dropdown-image-actions">
-                <div class="menu-dropdown-item" data-action="rotate-left"><i class="ti ti-rotate-left"></i> Rotate Left</div>
-                <div class="menu-dropdown-item" data-action="rotate-right"><i class="ti ti-rotate-right"></i> Rotate Right</div>
+                <div class="menu-dropdown-item" data-action="rotate-left"><i class="ti ti-rotate-clockwise"></i> Rotate Left</div>
+                <div class="menu-dropdown-item" data-action="rotate-right"><i class="ti ti-rotate-clockwise-2"></i> Rotate Right</div>
                 <div class="menu-dropdown-divider"></div>
-                <div class="menu-dropdown-item" data-action="flip-horizontal"><i class="ti ti-arrows-sort"></i> Flip Horizontal</div>
-                <div class="menu-dropdown-item" data-action="flip-vertical"><i class="ti ti-arrows-sort"></i> Flip Vertical</div>
+                <div class="menu-dropdown-item" data-action="flip-horizontal"><i class="ti ti-arrows-left-right"></i> Flip Horizontal</div>
+                <div class="menu-dropdown-item" data-action="flip-vertical"><i class="ti ti-arrows-up-down"></i> Flip Vertical</div>
             </div>
         </div>
         <div class="menu-item" data-menu="favorites"><i class="ti ti-bookmark"></i> Favorites
@@ -82,7 +80,7 @@
                 <div class="menu-dropdown-item" data-action="add-keepsave"><i class="ti ti-bookmark-plus"></i> Add To KEEPSAVE</div>
                 <div class="menu-dropdown-item" data-action="remove-keepsave"><i class="ti ti-bookmark-minus"></i> Remove From KEEPSAVE</div>
                 <div class="menu-dropdown-divider"></div>
-                <div class="menu-dropdown-item" data-action="view-favorites"><i class="ti ti-bookmarks"></i> Favorite Images</div>
+                <div class="menu-dropdown-item" data-action="view-favorites"><i class="ti ti-bookmark"></i> Favorite Images</div>
             </div>
         </div>
         <div class="menu-item" data-menu="organization"><i class="ti ti-folder"></i> Organization
@@ -101,13 +99,12 @@
         </div>
     </div>
 
-    <!-- ===== MAIN CONTAINER ===== -->
     <div class="main-container">
         <div class="mobile-sidebar-backdrop" id="mobileSidebarBackdrop"></div>
         <div class="sidebar" id="sidebar">
             <div class="sidebar-header"><i class="ti ti-folder"></i> Library</div>
             <div class="sidebar-nav" id="sidebarNav">
-                <div class="sidebar-section active" data-sidebar="all"><i class="ti ti-photo"></i> All Images<span class="sidebar-count" id="countAll">0</span></div>
+                <div class="sidebar-section active" data-sidebar="all"><i class="ti ti-photo-library"></i> All Images<span class="sidebar-count" id="countAll">0</span></div>
                 <div class="sidebar-section" data-sidebar="favorites"><i class="ti ti-bookmark"></i> Favorites<span class="sidebar-count" id="countFavorites">0</span></div>
                 <div class="sidebar-section" data-sidebar="trash"><i class="ti ti-trash"></i> Trash<span class="sidebar-count" id="countTrash">0</span></div>
             </div>
@@ -125,34 +122,32 @@
                 <button id="btnZoomOut">−</button>
                 <span class="zoom-label" id="zoomLabel">100%</span>
                 <button id="btnZoomIn">+</button>
-                <button id="btnResetZoom"><i class="ti ti-arrows-move"></i></button>
+                <button id="btnResetZoom"><i class="ti ti-zoom-reset"></i></button>
                 <span class="nav-divider"></span>
                 <button id="btnFitScreen"><i class="ti ti-arrows-shrink"></i></button>
                 <button id="btnNextImage"><i class="ti ti-chevron-right"></i></button>
             </div>
-            <button class="exit-fullscreen-btn" id="exitFullscreenBtn"><i class="ti ti-arrows-maximize"></i></button>
+            <button class="exit-fullscreen-btn" id="exitFullscreenBtn"><i class="ti ti-arrows-minimize"></i></button>
             <div class="section-actions-bar" id="sectionActionsBar"></div>
         </div>
     </div>
 
-    <!-- ===== STATUSBAR ===== -->
     <div class="statusbar" id="statusbar">
         <span><i class="ti ti-file"></i> <span id="statName">—</span></span>
         <span><i class="ti ti-database"></i> <span id="statSize">—</span></span>
         <span><i class="ti ti-aspect-ratio"></i> <span id="statRes">—</span></span>
         <span><i class="ti ti-photo"></i> <span id="statFormat">—</span></span>
         <span><i class="ti ti-calendar"></i> <span id="statDate">—</span></span>
-        <span class="exif-badge" id="exifBadge" title="Click for EXIF data"><i class="ti ti-camera"></i> EXIF</span>
+        <span class="exif-badge" id="exifBadge" title="Click for EXIF data">📸 EXIF</span>
         <span style="margin-right:auto;"></span>
         <span id="statIndex">0 / 0</span>
     </div>
 
-    <!-- ===== KEEPSAVE DRAWER ===== -->
     <div class="keepsave-overlay" id="keepsaveOverlay"></div>
     <div class="keepsave-drawer" id="keepsaveDrawer">
         <div class="keepsave-header">
             <h2><i class="ti ti-bookmark"></i> KeepSave</h2>
-            <button class="keepsave-close" id="keepsaveClose"><i class="ti ti-x"></i></button>
+            <button class="keepsave-close" id="keepsaveClose">✕</button>
         </div>
         <div class="keepsave-count" id="keepsaveCountLabel">0 saved images</div>
         <div class="keepsave-list" id="keepsaveList"></div>
@@ -162,7 +157,6 @@
         </div>
     </div>
 
-    <!-- ===== COMMAND PALETTE ===== -->
     <div class="command-overlay" id="commandOverlay">
         <div class="command-palette">
             <div class="command-input-wrap">
@@ -188,19 +182,15 @@
         </div>
     </div>
 
-    <!-- ===== LOADING OVERLAY ===== -->
     <div class="loading-overlay" id="loadingOverlay">
         <div class="spinner"></div>
         <div class="loading-text">Processing...</div>
     </div>
 
-    <!-- ===== HIDDEN INPUTS ===== -->
     <input type="file" id="fileInput" accept="image/*,.remg" multiple style="display:none;">
     <input type="file" id="remgInput" accept=".remg" style="display:none;">
     <div class="toast-container" id="toastContainer"></div>
 
-    <!-- ===== SCRIPTS ===== -->
-    <script src="sanitizer.js"></script>
-    <script src="app.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

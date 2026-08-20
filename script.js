@@ -1,5 +1,5 @@
 /**
- * 
+ *
  * 
  * التحسينات الأمنية المطبقة:
  * 1. تطهير المدخلات (Sanitization) - منع هجمات XSS
@@ -13,9 +13,6 @@
 
     // ==================== أداة التطهير الأمني ====================
     const Security = {
-        /**
-         * تطهير النص من أكواد HTML و JavaScript الضارة
-         */
         sanitizeText: function(input) {
             if (typeof input !== 'string') return '';
             
@@ -38,24 +35,15 @@
             return sanitized.trim();
         },
 
-        /**
-         * التحقق من صحة التاريخ
-         */
         isValidDate: function(date) {
             return date instanceof Date && !isNaN(date.getTime());
         },
 
-        /**
-         * التحقق من صحة معرف الصورة
-         */
         isValidImageId: function(id) {
             if (typeof id !== 'string') return false;
             return /^img_[0-9]+_[a-z0-9]+$/.test(id);
         },
 
-        /**
-         * التحقق من صحة الفهرس ضمن حدود المصفوفة
-         */
         validateIndex: function(index, arrayLength, fallback) {
             const num = Number(index);
             if (!Number.isInteger(num) || num < 0 || num >= arrayLength) {
@@ -64,9 +52,6 @@
             return num;
         },
 
-        /**
-         * التحقق من صحة الرقم ضمن النطاق
-         */
         validateInteger: function(value, min, max, fallback) {
             const num = Number(value);
             if (!Number.isInteger(num) || num < min || num > max) {
@@ -75,23 +60,14 @@
             return num;
         },
 
-        /**
-         * التحقق من صحة بيانات JSON المستوردة
-         */
         validateJSON: function(data) {
             if (typeof data !== 'object' || data === null) return null;
-            
-            // إذا كانت مصفوفة
             if (Array.isArray(data)) {
                 return data.filter(item => item && typeof item === 'object');
             }
-            
             return data;
         },
 
-        /**
-         * تطهير اسم الملف
-         */
         sanitizeFilename: function(filename) {
             if (typeof filename !== 'string') return 'file';
             return Security.sanitizeText(filename.replace(/[^a-zA-Z0-9._\-]/g, ''));
@@ -1325,38 +1301,32 @@
 
     // ==================== KEYBOARD SHORTCUTS ====================
     document.addEventListener('keydown', function(e) {
-        // Ctrl+P = Command Palette
         if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
             e.preventDefault();
             openCommandPalette();
             return;
         }
         
-        // Escape = Close dropdowns
         if (e.key === 'Escape') {
             closeAllDropdowns();
             if (keepsaveDrawer.classList.contains('open')) closeKeepsaveDrawer();
             return;
         }
         
-        // Arrow keys for navigation
         if (e.key === 'ArrowRight') nextImage();
         if (e.key === 'ArrowLeft') prevImage();
         if (e.key === 'ArrowUp') zoomIn();
         if (e.key === 'ArrowDown') zoomOut();
         
-        // Space = Slideshow toggle
         if (e.key === ' ' && !e.target.matches('input, textarea, button')) {
             e.preventDefault();
             toggleSlideshow();
         }
         
-        // F = Fullscreen
         if (e.key === 'f' && !e.target.matches('input, textarea, button')) {
             toggleFullscreen();
         }
         
-        // S = Add to KeepSave
         if (e.key === 's' && !e.target.matches('input, textarea, button')) {
             toggleFavorite();
         }
@@ -1400,7 +1370,6 @@
         }
     }
 
-    // Wait for DOM ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {
